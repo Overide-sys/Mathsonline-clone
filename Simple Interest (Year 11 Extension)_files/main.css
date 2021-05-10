@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+body {
+    margin: 0;
+}
+
+.svg-background, .svg-footer-background {
+    background: url(/assets/interactives/svg/empty.svg);
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 25%;
+    top: 0;
+    opacity: 1;
+    z-index: -1;
+}
+
+.svg-footer-background {
+    background: url(/assets/interactives/svg/empty.svg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+}
+
+.svg-interactive {
+    opacity: 0;
+    visibility: hidden;
+}
+
+svg {
+    font-family: 'Roboto', sans-serif;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 450px;
+    overflow: hidden;
+    padding: 10px 15px;
+}
+
+svg.svg-reset {
+    position: relative;
+    height: 24px !important;
+    width: 24px !important;
+    left: unset;
+    top: unset;
+    padding: unset;
+    pointer-events: none;
+}
+
+svg.print {
+    position: inherit;
+    left: initial;
+    top: initial;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+
+svg [class^="checkbox"], svg [class*=" checkbox"], svg [class^="radiobutton"], svg [class*=" radiobutton"], 
+    svg [class^="selectable"], svg [class*=" selectable"], svg [class^="audio"], svg [class*=" audio"] {
+    cursor: pointer;
+}
+
+svg text .text, svg .helper, svg .prefix, svg .suffix, svg .label, svg .regexpError {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+svg .text {
+    font-weight: 400;
+}
+
+svg text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+svg text::selection {
+    background: none;
+}
+
+svg .underline {
+    stroke: #ccc;
+    stroke-width: 1;
+}
+
+svg .label {
+
+}
+
+svg .helper {
+    fill: #bbb;
+}
+
+svg .suffix, svg .prefix {
+    fill: #aaa;
+}
+
+svg .regexpError {
+    fill: #bbb;
+    opacity: 0;
+}
+
+svg .keypadsContainer {
+    fill: rgba(0,0,0,.1);
+}
+
+svg .notificationsContainer .text {
+    fill: white;
+}
+
+svg .keys .focus {
+    cursor: pointer;
+}
+
+#preview-footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+    text-align:center;
+}
+
+.path-selected-brush-stroke {
+    stroke: #FFC300;
+    stroke-width: 16px;
+    opacity: 0.8;
+}
+
+svg [class^="checkbox"].disabled, svg [class*=" checkbox"].disabled, svg [class^="radiobutton"].disabled, svg [class*=" radiobutton"].disabled, 
+    svg [class^="selectable"].disabled, svg [class*=" selectable"].disabled, svg [class^="draggable"].disabled, svg [class*=" draggable"].disabled,
+    svg [class^="draghelper"].disabled, svg [class*=" draghelper"].disabled {
+    cursor: default;
+}
+
+.z-depth-0 { box-shadow: none !important; }
+.z-depth-1, .card, .btn-fab { box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+.z-depth-1-half { box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
+.z-depth-2 { box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+.z-depth-3 { box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+.z-depth-4 { box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21) !important; }
+.z-depth-5 { box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22); }
+
+#notificationsContainer {
+    font-size: 28px;
+    line-height: 1.2em;
+    text-align: center;
+    z-index: 20000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: white;
+    padding: 20px 0px;
+    transition: all 300ms;
+    pointer-events: none;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+#keypadsContainer {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    z-index: 10000;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+
+}
+
+.innerKeypadsContainer {
+    display: inline-block;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 0px 10px 4px 10px;
+    pointer-events: all;
+    width: 100%;
+    max-width: 800px;
+}
+
+.innerKeypadsContainer.isAlphaNumericKeypad {
+    max-width: 800px;
+}
+
+.innerKeypadsContainer.isNumericKeypad {
+    max-width: 300px;
+}
+
+.keypad {
+    overflow: hidden;
+}
+
+#keypadsContainer.docked {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+#keypadsContainer.lightKeypad .innerKeypadsContainer, #keypadsContainer.lightKeypad .toolbar {
+    background: #ECEFF1;
+}
+
+#keypadsContainer.darkKeypad .innerKeypadsContainer, #keypadsContainer.darkKeypad .toolbar {
+    background: #263238;
+}
+
+#keypadsContainer .alphanumeric, #keypadsContainer .numeric {
+    padding: 10px 0px 6px 0px;
+}
+
+#keypadsContainer .toolbar {
+    display: inline-block;
+    height: 37px;
+    line-height: 42px;
+    margin-top: -37px;
+    float: right;
+    padding: 0px 16px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    box-shadow: inset 0 -10px 20px -10px rgba(0, 0, 0, 0.05), inset 0 -2px 0px 0 rgba(0, 0, 0, 0.05);
+}
+
+#keypadsContainer .toolbar .fa-keyboard-o {
+    font-size: 1.5em;
+}
+
+#keypadsContainer.dragging {
+    position: absolute;
+    width: unset;
+}
+
+.toolbarKey {
+    cursor: pointer;
+}
+
+.keypadRow {
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+}
+
+.keypadKey {
+    display: inline-block;
+    font-size: 24px;
+    height: 40px;
+    flex-grow: 1;
+    margin: 3px 3px;
+    user-select: none;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.08);
+    transition: all 300ms;
+    vertical-align: bottom;
+    flex-basis: 0;
+}
+
+.keypadSize0_5 {
+    flex-grow: 0.5;
+}
+
+.keypadSize1 {
+    flex-grow: 1;
+}
+
+.keypadSize1_5 {
+    flex-grow: 1.5;
+}
+
+.keypadSize2 {
+    flex-grow: 2;
+}
+
+.keypadSize3 {
+    flex-grow: 3;
+}
+
+.keypadSize3_1 {
+    flex-grow: 3.1;
+}
+
+.keypadSize4 {
+    flex-grow: 4;
+}
+
+.keypadSize5 {
+    flex-grow: 5;
+}
+
+.keypadKey:active, .keypadKey:focus {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.16)
+}
+
+.keypadKeyDisabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.lightKeypad .keypadKey:active, .lightKeypad .keypadKey:focus {
+    background: #d5dbe0;
+}
+
+.lightKeypad .keypadKey, .lightKeypad .toolbarKey {
+    color: #425158;
+    fill: #425158;
+}
+
+.lightKeypad .keypadKey {
+    background: #FBFCFC;
+
+}
+
+.keypadKey.keyNext {
+    font-size: 18px;
+}
+
+.lightKeypad .keypadKey.keyNext {
+    background: #394349;
+    color: white;
+}
+
+.darkKeypad .keypadKey.keyNext  {
+    background: #6e7b84;
+    color: white;
+}
+
+.darkKeypad .keypadKey, .darkKeypad .toolbarKey {
+    color: #CED1D2;
+    fill: #CED1D2;
+}
+
+.darkKeypad .keypadKey {
+    background: #404B50;
+}
+
+.keypadKey.keySubmit {
+    font-size: 18px;
+    background: dodgerblue;
+    color: white;
+}
+
+.darkKeypad .keypadKey:active, .darkKeypad .keypadKey:focus {
+    background: #333f44;
+}
+
+.svg-icon-backspace {
+    transform: matrix(1.5,0,0,1.5,5,15);
+}
+
+.svg-icon-space {
+    transform: matrix(1.5,0,0,1.5,5,14);
+}
+
+.svg-icon-close, .svg-icon-left-arrow, .svg-icon-right-arrow {
+    transform: matrix(1.25,0,0,1.25,5,9);
+}
+
+.viewport {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .numeric .landscapeRow {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    #keypadsContainer .alphanumeric, #keypadsContainer .numeric {
+        padding: 4px 0px;
+    }
+
+    .innerKeypadsContainer {
+        padding: 0px 4px;
+    }
+
+    .keypadKey {
+        margin: 1px 1px;
+        border-radius: 2px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 20px;
+    }
+
+    .lightKeypad .keypadKey.keySubmit, .darkKeypad .keypadKey.keySubmit,
+    .lightKeypad .keypadKey.keyNext, .darkKeypad .keypadKey.keyNext {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation:landscape) {
+
+    .numeric .portraitRow {
+        display: none;
+    }
+
+    .innerKeypadsContainer.isNumericKeypad {
+        max-width: 800px;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation:portrait) {
+
+    .numeric .landscapeRow {
+        display: none;
+    }
+}
+
+
